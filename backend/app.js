@@ -13,17 +13,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Solve CORS
-app.use(cors({credentials: true, origin: "http://localhost:5173"}))
+app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 
 // Upload directory
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")))
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // DB connection
-require("./config/db.js")
+require("./config/db.js");
 
 // routes
-const router = require("./routes/router.js")
-app.use(router)
+const router = require("./routes/router.js");
+app.use(router);
 
 app.listen(port, () => {
   console.log("App rodando na porta:", port);
