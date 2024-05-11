@@ -1,4 +1,5 @@
 const { body } = require("express-validator");
+const Photo = require("../models/Photo");
 
 const photoInsertValidation = () => {
   return [
@@ -36,8 +37,18 @@ const commentValidation = () => {
   ];
 };
 
+// Search photos bt title
+const searchPhotos = async (req, res) => {
+  const { q } = req.query;
+
+  const photos = await Photo.find({ title: new RegExp(q, "i") }).exec();
+
+  res.status(200).json(photos);
+};
+
 module.exports = {
   photoInsertValidation,
   photoUpdateValidation,
   commentValidation,
+  searchPhotos,
 };

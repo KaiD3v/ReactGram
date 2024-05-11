@@ -18,6 +18,7 @@ const {
   photoInsertValidation,
   photoUpdateValidation,
   commentValidation,
+  searchPhotos,
 } = require("../middlewares/photoValidation");
 const authGuard = require("../middlewares/authGuard");
 const validate = require("../middlewares/handleValidation");
@@ -30,11 +31,13 @@ router.post(
   imageUpload.single("image"),
   photoInsertValidation(),
   validate,
-  insertPhoto
+  insertPhoto,
+  searchPhotos
 );
 router.delete("/:id", authGuard, deletePhoto);
 router.get("/", authGuard, getAllPhotos);
 router.get("/user/:id", authGuard, getUserPhotos);
+router.get("/search", authGuard, searchPhotos);
 router.get("/:id", authGuard, getPhotoById);
 router.put("/:id", authGuard, photoUpdateValidation(), updatePhoto);
 router.put("/like/:id", authGuard, likePhoto);
