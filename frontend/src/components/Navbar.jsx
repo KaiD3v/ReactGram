@@ -10,6 +10,7 @@ import {
 } from "react-icons/bs";
 
 const NavBar = () => {
+
   return (
     <div>
       <nav id="nav">
