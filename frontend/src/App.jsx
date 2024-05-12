@@ -2,7 +2,16 @@ import { useState } from "react";
 import "./App.css";
 
 // Router
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+
+// Components
+import NavBar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 // pages
 import Home from "./pages/Home/Home";
@@ -13,12 +22,15 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <h1>ReactGram</h1>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
+        <NavBar />
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </div>
+        <Footer />
       </Router>
     </div>
   );
