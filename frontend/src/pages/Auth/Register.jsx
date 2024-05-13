@@ -2,6 +2,7 @@ import "./Auth.css";
 
 // Compontens
 import { Link } from "react-router-dom";
+ 
 
 // Hooks
 import { useState, useEffect } from "react";
