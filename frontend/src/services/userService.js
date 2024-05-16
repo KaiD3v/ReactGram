@@ -7,7 +7,7 @@ const profile = async (data, token) => {
   try {
     const res = await fetch(api + "/users/profile", config)
       .then((res) => res.json())
-      .then((err) => err);
+      .catch((err) => err);
 
     return res;
   } catch (error) {
@@ -25,8 +25,8 @@ const updateProfile = async (data, token) => {
       .catch((err) => err);
 
     return res;
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
   }
 };
 

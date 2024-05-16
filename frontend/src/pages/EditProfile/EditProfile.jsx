@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // Redux
-import { profile, updateProfile, resetMessage } from "../../slices/userSlice";
+import { updateProfile ,profile, resetMessage } from "../../slices/userSlice";
 
 // Components
 import Message from "../../components/Message";
