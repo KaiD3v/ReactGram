@@ -28,7 +28,7 @@ export const publishPhoto = createAsyncThunk(
 );
 
 export const photoSlice = createSlice({
-  name: "photo",
+  name: "publish",
   initialState,
   reducers: {
     resetMessage: (state) => {
@@ -49,14 +49,10 @@ export const photoSlice = createSlice({
         state.photos.unshift(state.photo);
         state.message = "Foto publicada com sucesso!";
       })
-      .addCase(publishPhoto.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
       .addCase(publishPhoto.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-        state.photo = {};
+        state.photo = null;
       });
   },
 });
