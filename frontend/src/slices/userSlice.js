@@ -42,11 +42,15 @@ export const updateProfile = createAsyncThunk(
   }
 );
 
-// get user details
+// Get user details
 export const getUserDetails = createAsyncThunk(
   "user/get",
   async (id, thunkAPI) => {
-    const data = await userService.getUserDetails(id);
+    const token = thunkAPI.getState().auth.user.token;
+
+    const data = await userService.getUserDetails(id, token);
+
+    console.log(data);
 
     return data;
   }
@@ -90,7 +94,7 @@ export const userSlice = createSlice({
       })
       .addCase(getUserDetails.pending, (state) => {
         state.loading = true;
-        state.error = false;
+        state.error = null;
       })
       .addCase(getUserDetails.fulfilled, (state, action) => {
         state.loading = false;
