@@ -19,12 +19,12 @@ const register = async (data) => {
   }
 };
 
-// logout an user
+// Logout a user
 const logout = () => {
   localStorage.removeItem("user");
 };
 
-// Sign in an user
+// Sign in a user
 const login = async (data) => {
   const config = requestConfig("POST", data);
 
@@ -33,7 +33,7 @@ const login = async (data) => {
       .then((res) => res.json())
       .catch((err) => err);
 
-    if (res._id) {
+    if (res) {
       localStorage.setItem("user", JSON.stringify(res));
     }
 

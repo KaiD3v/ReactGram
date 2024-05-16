@@ -50,7 +50,7 @@ const Profile = () => {
           <p>{user.bio}</p>
         </div>
       </div>
-      {id === userAuth.id && (
+      {id === user._id && (
         <>
           <div className="new-photo" ref={newPhotoForm}>
             <h3>Compartile algum momento seu:</h3>
@@ -63,7 +63,7 @@ const Profile = () => {
                 <span>Imagem:</span>
                 <input type="file" />
               </label>
-              <input type="submit" value={Postar} />
+              <input type="submit" value="Postar" />
             </form>
           </div>
         </>
