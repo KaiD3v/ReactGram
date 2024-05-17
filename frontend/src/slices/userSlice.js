@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import userService from "../services/userService";
+import photoService from "../services/photoService";
 
 const initialState = {
   user: {},
