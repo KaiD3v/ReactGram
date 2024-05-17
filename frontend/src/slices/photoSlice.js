@@ -196,11 +196,11 @@ export const photoSlice = createSlice({
         state.error = null;
 
         if (state.photo.likes) {
-          state.photo.likes.push(action.payload.useId);
+          state.photo.likes.push(action.payload.userId);
         }
 
         state.photos.map((photo) => {
-          if (photo._id === action.payload.photo.photoId) {
+          if (photo._id === action.payload.photoId) {
             return photo.likes.push(action.payload.userId);
           }
           return photo;
@@ -211,7 +211,7 @@ export const photoSlice = createSlice({
       .addCase(like.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-      });
+      })
   },
 });
 

@@ -78,7 +78,7 @@ const like = async (id, token) => {
   const config = requestConfig("PUT", null, token);
 
   try {
-    const res = await fetch(api + "/photos/like" + id, config)
+    const res = await fetch(api + "/photos/like/" + id, config)
       .then((res) => res.json())
       .catch((err) => err);
 
