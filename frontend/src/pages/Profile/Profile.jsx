@@ -5,7 +5,7 @@ import { uploads } from "../../utils/config";
 // components
 import Message from "../../components/Message";
 import { Link } from "react-router-dom";
-import { BsFillEyeFill, BsPencil, BsXLg } from "react-icons/bs";
+import { BsFillEyeFill, BsPencil, BsPencilFill, BsXLg } from "react-icons/bs";
 
 // hooks
 import { useState, useEffect, useRef } from "react";
@@ -18,6 +18,7 @@ import {
   publishPhoto,
   resetMessage,
   getUserPhotos,
+  deletePhoto,
 } from "../../slices/photoSlice";
 
 const Profile = () => {
@@ -57,6 +58,12 @@ const Profile = () => {
     setImage(image);
   };
 
+  const resetComponentMessage = () => {
+    setTimeout(() => {
+      dispatch(resetMessage());
+    }, 2000);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -76,9 +83,14 @@ const Profile = () => {
 
     setTitle("");
 
-    setTimeout(() => {
-      dispatch(resetMessage());
-    }, 2000);
+    reseteComponentMessage();
+  };
+
+  // Exclude an image
+  const handleDelete = (id) => {
+    dispatch(deletePhoto(id));
+
+    resetComponentMessage();
   };
 
   return (
@@ -120,7 +132,7 @@ const Profile = () => {
         </>
       )}
       <div className="user-photos">
-        <h2>Fotos publicadas</h2>
+        <h2>Fotos publicadas:</h2>
         <div className="photos-container">
           {photos &&
             photos.map((photo) => (
@@ -132,15 +144,21 @@ const Profile = () => {
                   />
                 )}
                 {id === userAuth._id ? (
-                  <p>actions</p>
+                  <div className="actions">
+                    <Link to={`/photos/${photo._id}`}>
+                      <BsFillEyeFill />
+                    </Link>
+                    <BsPencilFill onClick={() => handleEdit(photo)} />
+                    <BsXLg onClick={() => handleDelete(photo._id)} />
+                  </div>
                 ) : (
-                  <Link to={`photos/${photo._id}`} className="btn">
-                    {" "}
+                  <Link className="btn" to={`/photos/${photo._id}`}>
+                    Ver
                   </Link>
                 )}
               </div>
             ))}
-          {photos.length === 0 && <p>Ainda não há fotos publicadas</p>}
+          {photos.length === 0 && <p>Ainda não há fotos publicadas...</p>}
         </div>
       </div>
     </div>

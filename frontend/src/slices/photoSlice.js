@@ -43,9 +43,11 @@ export const deletePhoto = createAsyncThunk(
   "photo/delete",
   async (id, thunkAPI) => {
     const token = thunkAPI.getState().auth.user.token;
+
     const data = await photoService.deletePhoto(id, token);
 
-    // check for errors
+    console.log(data.errors);
+    // Check for errors
     if (data.errors) {
       return thunkAPI.rejectWithValue(data.errors[0]);
     }
