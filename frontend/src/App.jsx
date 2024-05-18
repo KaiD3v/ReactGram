@@ -13,8 +13,8 @@ import {
 import { useAuth } from "./hooks/useAuth";
 
 // Components
-import NavBar from "./components/Navbar";
-import Footer from "./components/Footer";
+import NavBar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 // pages
 import Home from "./pages/Home/Home";

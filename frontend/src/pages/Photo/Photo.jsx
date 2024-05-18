@@ -3,11 +3,11 @@ import "./Photo.css";
 import { uploads } from "../../utils/config";
 
 // components
-import Message from "../../components/Message";
+import Message from "../../components/Message/Message";
 import { Link } from "react-router-dom";
 
-import PhotoItem from "../../components/PhotoItem";
-import LikeContainer from "../../components/LikeContainer";
+import PhotoItem from "../../components/PhotoItem/PhotoItem";
+import LikeContainer from "../../components/LikeContainer/LikeContainer";
 
 // hooks
 import { useEffect, useState } from "react";

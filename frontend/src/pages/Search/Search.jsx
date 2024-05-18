@@ -7,8 +7,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useResetComponentMessage } from "../../hooks/useResetComponentMessage";
 
 // components
-import LikeContainer from "../../components/LikeContainer";
-import PhotoItem from "../../components/PhotoItem";
+import LikeContainer from "../../components/LikeContainer/LikeContainer";
+import PhotoItem from "../../components/PhotoItem/PhotoItem";
 import { Link } from "react-router-dom";
 
 // Redux
