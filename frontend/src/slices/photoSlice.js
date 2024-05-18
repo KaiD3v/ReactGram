@@ -284,11 +284,12 @@ export const photoSlice = createSlice({
         state.error = null;
       })
       .addCase(searchPhotos.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.loading = false;
         state.success = true;
         state.error = null;
         state.photos = action.payload;
-      })
+      });
   },
 });
 
