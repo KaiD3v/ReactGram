@@ -12,6 +12,10 @@
     display: none;
   }
 
+  .App{
+    margin-bottom: 7rem;
+  }
+
   .App #tab-bar {
     display: flex;
     justify-content: space-around;
@@ -38,7 +42,7 @@
     align-items: center;
   }
 
-  #tab-bar li{
+  #tab-bar li {
     list-style: none;
   }
 }

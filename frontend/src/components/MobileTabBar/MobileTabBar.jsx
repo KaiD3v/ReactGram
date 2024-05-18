@@ -39,38 +39,39 @@ const MobileTabBar = () => {
 
   return (
     <footer id="tab-bar">
-      {auth ? (
-        <ul>
+      <ul>
+        <li>
           <NavLink to="/">
             <BsHouseDoorFill size={"1.375rem"} />
           </NavLink>
-          <li>
-            <NavLink to={`/users/${user._id}`}>
-              <BsFillCameraFill size={"1.375rem"} />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={`/users/${user._id}`}>
-              <BsFillPersonFill size={"1.375rem"} />
-            </NavLink>
-          </li>
-          {user && (
+        </li>
+        {auth && user ? (
+          <>
+            <li>
+              <NavLink to={`/users/${user._id}`}>
+                <BsFillCameraFill size={"1.375rem"} />
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={`/users/${user._id}`}>
+                <BsFillPersonFill size={"1.375rem"} />
+              </NavLink>
+            </li>
             <li>
               <IoIosExit onClick={handleLogout} size={"1.375rem"} />
             </li>
-          )}
-        </ul>
-      ) : (
-        <>
-          {" "}
-          <li>
-            <NavLink to="/login">Entrar</NavLink>
-          </li>
-          <li>
-            <NavLink to="/register">Cadastrar</NavLink>
-          </li>
-        </>
-      )}
+          </>
+        ) : (
+          <>
+            <li>
+              <NavLink to="/login">Entrar</NavLink>
+            </li>
+            <li>
+              <NavLink to="/register">Cadastrar</NavLink>
+            </li>
+          </>
+        )}
+      </ul>
     </footer>
   );
 };
