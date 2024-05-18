@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import photoService from "../services/photoService";
+import { requestConfig } from "../utils/config";
 
 const initialState = {
   photos: [],
@@ -133,6 +134,8 @@ export const getPhotos = createAsyncThunk(
     return data;
   }
 );
+
+
 
 export const photoSlice = createSlice({
   name: "publish",
