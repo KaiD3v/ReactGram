@@ -15,6 +15,7 @@ import { useAuth } from "./hooks/useAuth";
 // Components
 import NavBar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import MobileTabBar from "./components/MobileTabBar/MobileTabBar";
 
 // pages
 import Home from "./pages/Home/Home";
@@ -68,6 +69,7 @@ function App() {
             />
           </Routes>
         </div>
+        <MobileTabBar />
         <Footer />
       </Router>
     </div>

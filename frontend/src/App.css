@@ -1,9 +1,40 @@
 .container {
-  min-height: 70vh;
-}
-
-@media screen and (max-width: 450px) {
-  .App #footer {
+    min-height: 70vh;
+  }
+  
+  .App #tab-bar {
     display: none;
   }
-}
+  
+  @media screen and (max-width: 450px) {
+    .App #footer {
+      display: none;
+    }
+  
+    .App #tab-bar {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      background-color: rgb(0, 0, 0);
+      padding: 1.3rem 0;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+  
+    .App #tab-bar ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+  
+    .App #tab-bar ul li {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+  
