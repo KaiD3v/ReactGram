@@ -23,7 +23,7 @@ const Photo = () => {
 
   const dispatch = useDispatch();
 
-  const resetMessage = useResetComponentMessage();
+  const resetMessage = useResetComponentMessage(dispatch);
 
   const { user } = useSelector((state) => state.auth);
   const { photo, loading, error, message } = useSelector(
