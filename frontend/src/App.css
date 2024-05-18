@@ -6,11 +6,6 @@
   display: none;
 }
 
-/*Mobile Navbar*/
-
-/* Mobile Navbar */
-
-
 /*Mobile Tab Bar*/
 @media screen and (max-width: 450px) {
   .App #footer {
@@ -41,5 +36,9 @@
   .App #tab-bar ul li {
     display: inline-flex;
     align-items: center;
+  }
+
+  #tab-bar li{
+    list-style: none;
   }
 }
