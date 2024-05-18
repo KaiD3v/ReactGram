@@ -20,8 +20,8 @@ ReactGram is a fullstack Instagram clone made with React and Express.
 # Features
 
 - Create and update profile
-- Post and edit photos
-- Comment in photos
+- Post edit and delete photos
+- Comment photos
 - Like photos
 
 # Installation
