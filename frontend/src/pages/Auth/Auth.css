@@ -37,3 +37,12 @@
   font-weight: bold;
   color: #0094f6;
 }
+
+@media screen and (max-width: 800px) {
+  #login {
+    max-width: 100%;
+  }
+  #register {
+    max-width: 100%;
+  }
+}

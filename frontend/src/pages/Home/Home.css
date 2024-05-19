@@ -18,3 +18,9 @@
 .no-photos a {
   color: #0094f6;
 }
+
+@media screen and (max-width: 500px) {
+  #home {
+    width: 100%;
+  }
+}

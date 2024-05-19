@@ -79,11 +79,12 @@
   font-size: 1.5em;
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 450px) {
   #nav {
     display: flex;
     justify-content: left;
     padding: 0.8rem;
+    margin: 0 auto;
   }
 
   #search-form form {
@@ -93,7 +94,7 @@
   }
 
   #search-form input {
-    padding: 0.7rem 8.8rem;
+    width: 410%;
   }
 
   #nav #nav-links {
