@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // Redux
-import { updateProfile ,profile, resetMessage } from "../../slices/userSlice";
+import { updateProfile, profile, resetMessage } from "../../slices/userSlice";
 
 // Components
 import Message from "../../components/Message/Message";
@@ -85,57 +85,64 @@ const Profile = () => {
   };
 
   return (
-    <div id="edit-profile">
-      <h2>Edite seus dados</h2>
-      <p className="subtitle">
-        Adicione uma imagem de perfil, e conte mais um pouco sobre você...
-      </p>
-      {(user.profileImage || previewImage) && (
-        <img
-          className="profile-image"
-          src={
-            previewImage
-              ? URL.createObjectURL(previewImage)
-              : `${uploads}/users/${user.profileImage}`
-          }
-          alt={user.name}
-        />
-      )}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Nome"
-          onChange={(e) => setName(e.target.value)}
-          value={name || ""}
-        />
-        <input type="email" placeholder="E-mail" disabled value={email || ""} />
-        <label>
-          <span>Imagem de Perfil:</span>
-          <input type="file" onChange={handleFile} />
-        </label>
-        <label>
-          <span>Bio:</span>
+    <div className="edit-profile-container">
+      <div id="edit-profile">
+        <h2>Edite seus dados</h2>
+        <p className="subtitle">
+          Adicione uma imagem de perfil, e conte mais um pouco sobre você...
+        </p>
+        {(user.profileImage || previewImage) && (
+          <img
+            className="profile-image"
+            src={
+              previewImage
+                ? URL.createObjectURL(previewImage)
+                : `${uploads}/users/${user.profileImage}`
+            }
+            alt={user.name}
+          />
+        )}
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Descrição do perfil"
-            onChange={(e) => setBio(e.target.value)}
-            value={bio || ""}
+            placeholder="Nome"
+            onChange={(e) => setName(e.target.value)}
+            value={name || ""}
           />
-        </label>
-        <label>
-          <span>Quer alterar sua senha?</span>
           <input
-            type="password"
-            placeholder="Digite sua nova senha..."
-            onChange={(e) => setPassword(e.target.value)}
-            value={password || ""}
+            type="email"
+            placeholder="E-mail"
+            disabled
+            value={email || ""}
           />
-        </label>
-        {!loading && <input type="submit" value="Atualizar" />}
-        {loading && <input type="submit" disabled value="Aguarde..." />}
-        {error && <Message msg={error} type="error" />}
-        {message && <Message msg={message} type="success" />}
-      </form>
+          <label>
+            <span>Imagem de Perfil:</span>
+            <input type="file" onChange={handleFile} />
+          </label>
+          <label>
+            <span>Bio:</span>
+            <input
+              type="text"
+              placeholder="Descrição do perfil"
+              onChange={(e) => setBio(e.target.value)}
+              value={bio || ""}
+            />
+          </label>
+          <label>
+            <span>Quer alterar sua senha?</span>
+            <input
+              type="password"
+              placeholder="Digite sua nova senha..."
+              onChange={(e) => setPassword(e.target.value)}
+              value={password || ""}
+            />
+          </label>
+          {!loading && <input type="submit" value="Atualizar" />}
+          {loading && <input type="submit" disabled value="Aguarde..." />}
+          {error && <Message msg={error} type="error" />}
+          {message && <Message msg={message} type="success" />}
+        </form>
+      </div>
     </div>
   );
 };
