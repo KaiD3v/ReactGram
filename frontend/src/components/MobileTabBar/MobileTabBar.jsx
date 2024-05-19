@@ -53,7 +53,7 @@ const MobileTabBar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/users/${user._id}`}>
+              <NavLink to={`/profile`}>
                 <BsFillPersonFill size={"1.375rem"} />
               </NavLink>
             </li>

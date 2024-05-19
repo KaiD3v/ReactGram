@@ -55,3 +55,9 @@
   width: 100%;
   margin-bottom: 1em;
 }
+
+@media screen and (max-width: 500px) {
+  #profile {
+    width: 100%;
+  }
+}
