@@ -29,6 +29,7 @@ import Search from "./pages/Search/Search";
 function App() {
   const { auth, loading } = useAuth();
 
+
   if (loading) {
     return <p>Loading...</p>;
   }

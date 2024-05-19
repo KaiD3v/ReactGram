@@ -36,10 +36,6 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    console.log(scrolled);
-  }, [scrolled]);
-
-  useEffect(() => {
     let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
