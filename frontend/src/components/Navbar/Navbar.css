@@ -79,7 +79,7 @@
   font-size: 1.5em;
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 450px) {
   #nav {
     display: flex;
     justify-content: left;

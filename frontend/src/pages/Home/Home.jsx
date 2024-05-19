@@ -19,7 +19,7 @@ const Home = () => {
 
   const resetMessage = useResetComponentMessage(dispatch);
 
-  const { user, auth } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
   const { photos, loading } = useSelector((state) => state.photo);
 
   // Load all photos
@@ -40,8 +40,7 @@ const Home = () => {
 
   return (
     <div id="home">
-      {auth &&
-        photos &&
+      {photos &&
         photos.map((photo) => (
           <div key={photo._id}>
             <PhotoItem photo={photo} />
@@ -51,7 +50,7 @@ const Home = () => {
             </Link>
           </div>
         ))}
-      {photos.length === 0 && (
+      {photos && photos.length === 0 && (
         <h2 className="no-photos">
           Ainda não há fotos publicadas,{" "}
           <Link to={`/users/${user._id}`}>clique aqui</Link>
