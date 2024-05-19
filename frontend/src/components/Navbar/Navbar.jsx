@@ -1,6 +1,4 @@
 import "./Navbar.css";
-
-// Components
 import { NavLink, Link } from "react-router-dom";
 import {
   BsSearch,
@@ -8,43 +6,59 @@ import {
   BsFillPersonFill,
   BsFillCameraFill,
 } from "react-icons/bs";
-
-// Hooks
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
-// Redux
 import { logout, reset } from "../../slices/authSlice";
 
 const Navbar = () => {
   const { auth } = useAuth();
   const { user } = useSelector((state) => state.auth);
-
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
-
   const [query, setQuery] = useState("");
+
+  const navRef = useRef(null);
+  const [scrolled, setScrolled] = useState(false);
 
   const handleLogout = () => {
     dispatch(logout());
     dispatch(reset());
-
     navigate("/login");
   };
 
   const handleSearch = (e) => {
     e.preventDefault();
-
     if (query) {
-      return navigate(`/search?q=${query}`);
+      navigate(`/search?q=${query}`);
     }
   };
 
+  useEffect(() => {
+    console.log(scrolled);
+  }, [scrolled]);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 30) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+      lastScrollY = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav id="nav">
+    <nav id={"nav"} ref={navRef} className={scrolled ? "scrolledX" : "scrolledY"}>
       <Link to="/">
         <h2>ReactGram</h2>
       </Link>
@@ -82,7 +96,6 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            {" "}
             <li>
               <NavLink to="/login">Entrar</NavLink>
             </li>

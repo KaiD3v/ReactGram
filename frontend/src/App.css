@@ -1,5 +1,6 @@
 .container {
   min-height: 70vh;
+  padding: 5rem;
 }
 
 .App #tab-bar {
@@ -12,7 +13,7 @@
     display: none;
   }
 
-  .App{
+  .App {
     margin-bottom: 7rem;
   }
 
